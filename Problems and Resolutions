@@ -1,0 +1,14 @@
+https://stackoverflow.com/questions/68511124/you-may-not-specify-a-referenced-group-id-for-an-existing-ipv4-cidr-rule-prompt
+
+Topic: You may not specify a referenced group id for an existing IPv4 CIDR rule. prompt when editing the Inbound rule in AWS Security Group
+
+In AWS EC2, I start a Classical Load Balancer in front of EC2 instance (security group of EC2 instance is launch-wizard-3). i want to change the inbound rule of Security Group of EC2 instance . A security group for Classical Load Balancer (it's name is my-first-load-balancer-sg) was also started. when i am changing source of an inbound rule of launch-wizard-3 to the my-first-load-balancer-sg, following error is prompted. I tried many times to solve it, but i couldn't.
+
+
+
+
+
+
+
+
+``

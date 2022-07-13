@@ -1,0 +1,56 @@
+https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html
+
+Image IDs:
+Red Hat
+Amazon Linux:
+
+View available Key Pairs:
+#aws ec2 describe-key-pairs
+
+
+View available ec2 instances:
+#aws ec2 describe-instances \
+
+
+The Name that's displayed there is taken from the Name tag. To set the instance name e.g. to test01 and its volume name to test01-disk1 you'd run something like this:
+
+aws ec2 run-instances --tag-specifications \
+    'ResourceType=instance,Tags=[{Key=Name,Value=test01}]' \
+    'ResourceType=volume,Tags=[{Key=Name,Value=test01-disk1}]' \
+    ... other parameters ...
+
+To delete an instance, you use the command aws ec2 terminate-instances to delete it:
+    $ aws ec2 terminate-instances --instance-ids i-5203422c
+
+
+This example terminates the specified instance:
+    #aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
+      InstanceID:
+      "InstanceId": "i-00504a212bc1da2d3",
+
+
+The following example shows how to launch a t2.micro instance in the specified subnet of a VPC. Replace the following parameter values with your own:
+
+--image-id ami-xxxxxxxx
+--key-name MyKeyPair
+--security-group-ids sg-903004f8
+--subnet-id subnet-6e7f829e
+
+$ aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --key-name MyKeyPair --security-group-ids sg-903004f8 --subnet-id subnet-6e7f829e
+
+
+The following describe-security-groups example describes the specified security group:
+    # aws ec2 describe-security-groups
+        "GroupId": "sg-00aa022074847f772",
+
+
+RUN NOW:
+#aws ec2 run-instances --image-id ami-0cff7528ff583bf9a --count 1 --instance-type t2.micro --key-name AWSCLIKeyPair --security-group-ids sg-00aa022074847f772 --subnet-id subnet-6e7f829e
+
+#aws ec2 run-instances --image-id ami-0cff7528ff583bf9a --count 1 --instance-type t2.micro --key-name AWSCLIKeyPair --security-group-ids sg-00aa022074847f772
+
+#aws ec2 terminate-instances --instance-ids i-00504a212bc1da2d3
+
+    InstanceID:
+    "InstanceId": "i-00504a212bc1da2d3",
